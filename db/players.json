@@ -1,0 +1,62 @@
+{
+  "player1": {
+    "name": "MATILDA WALDT",
+    "imageUrl": "https://ggcathletics.com/images/2019/8/14/Waldt_web.jpg",
+    "position": "Keeper",
+    "uid": "gnba8QX29oNzCmqk8ewUgLP6opm2"
+  },
+  "player2": {
+    "name": "AUTUMN CARTER",
+    "imageUrl": "https://ggcathletics.com/images/2019/8/14/Carter_web.jpg",
+    "position": "Midfield",
+    "uid": "gnba8QX29oNzCmqk8ewUgLP6opm2"
+  },
+  "player3": {
+    "name": "MARIANA ALMANZA",
+    "imageUrl": "https://ggcathletics.com/images/2019/8/14/Almanza_web.jpg",
+    "position": "Defense",
+    "uid": "gnba8QX29oNzCmqk8ewUgLP6opm2"
+  },
+  "player4": {
+    "name": "GABBY BISHOP",
+    "imageUrl": "https://ggcathletics.com/images/2019/8/14/Bishop_web.jpg?",
+    "position": "Midfield",
+    "uid": "gnba8QX29oNzCmqk8ewUgLP6opm2"
+  },
+  "player5": {
+    "name": "CARINA VINCELLI",
+    "imageUrl": "https://ggcathletics.com/images/2019/8/14/Vincelli_web.jpg",
+    "position": "Defense",
+    "uid": "gnba8QX29oNzCmqk8ewUgLP6opm2"
+  },
+  "player6": {
+    "name": "HANNAH MARTINELLI",
+    "imageUrl": "https://ggcathletics.com/images/2019/8/14/Martinelli_web.jpg",
+    "position": "Forward",
+    "uid": "gnba8QX29oNzCmqk8ewUgLP6opm2"
+  },
+  "player7": {
+    "name": "VICTORIA WATSON",
+    "imageUrl": "https://ggcathletics.com/images/2019/8/14/Watson_web.jpg",
+    "position": "Forward",
+    "uid": "gnba8QX29oNzCmqk8ewUgLP6opm2"
+  },
+  "player8": {
+    "name": "DR. MIKE GIULIANO",
+    "imageUrl": "https://ggcathletics.com/images/2018/5/3/dr_mike_giuliano_44.jpg",
+    "position": "Head Coach",
+    "uid": "gnba8QX29oNzCmqk8ewUgLP6opm2"
+  },
+  "player9": {
+    "name": "Cam Newton",
+    "imageUrl": "http://auburntigers.com/images/2014/4/7/9902011.jpeg",
+    "position": "Quarterback",
+    "uid": "qNEz2r04JwZm0fCCQeSS3EUMr6v1"
+  },
+  "player10": {
+    "name": "Carnell 'Cadillac' Williams",
+    "imageUrl": "https://snworksceo.imgix.net/atp/4e0d0229-8ca2-4e46-b440-01c58acc8a38.sized-1000x1000.jpg?w=1000",
+    "position": "Running Back",
+    "uid": "qNEz2r04JwZm0fCCQeSS3EUMr6v1"
+  }
+}
