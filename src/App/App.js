@@ -1,28 +1,41 @@
 import React from 'react';
-import logo from './logo.svg';
+import firebase from 'firebase/app';
+import 'firebase/auth';
 import './App.scss';
-import 'bootstrap/dist/css/bootstrap.min.css';
+import authData from '../helpers/data/authData';
+import Auth from '../components/Auth/Auth';
+import MyNav from '../components/MyNav/MyNav';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <button className='btn btn-light'>Yay Sportsball</button>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+authData.firebaseApp();
+
+class App extends React.Component {
+  state = {
+    authed: false,
+  }
+
+  componentDidMount() {
+    this.removeListener = firebase.auth().onAuthStateChanged((user) => {
+      if (user) {
+        this.setState({ authed: true });
+      } else {
+        this.setState({ authed: false });
+      }
+    });
+  }
+
+  componentWillUnmount() {
+    this.removeListener();
+  }
+
+  render() {
+    const { authed } = this.state;
+    return (
+      <div className="App">
+        <MyNav authed={authed} />
+        { (!authed) ? (<Auth />) : ('') }
+      </div>
+    );
+  }
 }
 
 export default App;
