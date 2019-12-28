@@ -20,12 +20,19 @@ class Team extends React.Component {
     this.getPlayers();
   }
 
+  removePlayer = (playerId) => {
+    playerData.deletePlayer(playerId)
+      .then(() => {
+        this.getPlayers();
+      }).catch((err) => console.error(err));
+  }
+
   render() {
     return (
       <div>
         <h1>My Team</h1>
         <div className="row d-flex flex-wrap justify-content-around">
-          {this.state.players.map((player) => <Player key={player.id} player={player} />)}
+          {this.state.players.map((player) => <Player key={player.id} player={player} sack={this.removePlayer} />)}
         </div>
       </div>
     );
