@@ -7,6 +7,7 @@ import Auth from '../components/Auth/Auth';
 import MyNav from '../components/MyNav/MyNav';
 import Team from '../components/Team/Team';
 import Form from '../components/Form/Form';
+import playerData from '../helpers/data/playerData';
 
 authData.firebaseApp();
 
@@ -34,6 +35,13 @@ class App extends React.Component {
     this.setState({ showForm: true });
   }
 
+  addPlayer = (playerObj) => {
+    playerData.newPlayer(playerObj)
+      .then(() => {
+        this.setState({ showForm: false });
+      }).catch((err) => console.error(err));
+  }
+
   renderView = () => {
     const { authed, showForm } = this.state;
     if (!authed) {
@@ -47,7 +55,7 @@ class App extends React.Component {
         </div>
       );
     }
-    return (<Form />);
+    return (<Form addNewPlayer={this.addPlayer} />);
   }
 
   render() {
