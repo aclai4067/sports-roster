@@ -2,16 +2,27 @@ import './Form.scss';
 import React from 'react';
 import PropTypes from 'prop-types';
 import authData from '../../helpers/data/authData';
+import playerShape from '../../helpers/propz/playerShape';
 
 class Form extends React.Component {
   static propTypes = {
     addNewPlayer: PropTypes.func,
+    editMode: PropTypes.bool,
+    playerToEdit: playerShape.playerShape,
+    editPlayer: PropTypes.func,
   }
 
   state = {
     playerName: '',
     playerImgUrl: '',
     playerPosition: '',
+  }
+
+  componentDidMount() {
+    const { playerToEdit, editMode } = this.props;
+    if (editMode) {
+      this.setState({ playerName: playerToEdit.name, playerImgUrl: playerToEdit.imageUrl, playerPosition: playerToEdit.position });
+    }
   }
 
   savePlayerEvent = (e) => {
@@ -25,6 +36,18 @@ class Form extends React.Component {
     };
     saveNewPlayer(newPlayerObj);
     this.setState({ playerName: '', playerImgUrl: '', playerPosition: '' });
+  }
+
+  updatePlayerEvent = (e) => {
+    e.preventDefault();
+    const { editPlayer, playerToEdit } = this.props;
+    const updatedPlayer = {
+      name: this.state.playerName,
+      imageUrl: this.state.playerImgUrl,
+      position: this.state.playerPosition,
+      uid: playerToEdit.uid,
+    };
+    editPlayer(playerToEdit.id, updatedPlayer);
   }
 
   addName = (e) => {
@@ -43,6 +66,8 @@ class Form extends React.Component {
   }
 
   render() {
+    const { editMode } = this.props;
+
     return (
       <form className='col-6 offset-3 PinForm'>
         <div className="form-group">
@@ -57,7 +82,10 @@ class Form extends React.Component {
           <label htmlFor="player-position">Player Poisition:</label>
           <input type="text" className="form-control" id="player-position" placeholder="Forward" value={this.state.playerPosition} onChange={this.addPosition} />
         </div>
-        <button className="btn btn-secondary" onClick={this.savePlayerEvent}>Add Player</button>
+        {
+          (!editMode) ? (<button className="btn btn-secondary" onClick={this.savePlayerEvent}>Add Player</button>)
+            : (<button className="btn btn-warning" onClick={this.updatePlayerEvent}>Update Player</button>)
+        }
       </form>
     );
   }

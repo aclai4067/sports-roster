@@ -15,6 +15,8 @@ class App extends React.Component {
   state = {
     authed: false,
     showForm: false,
+    editMode: false,
+    playerToEdit: {},
   }
 
   componentDidMount() {
@@ -31,6 +33,21 @@ class App extends React.Component {
     this.removeListener();
   }
 
+  editPlayer = (playerId, newPlayerObj) => {
+    playerData.updatePlayer(playerId, newPlayerObj)
+      .then(() => {
+        this.setState({ editMode: false, showForm: false, playerToEdit: {} });
+      }).catch((err) => console.error(err));
+  }
+
+  changeEditMode = (editMode) => {
+    this.setState({ editMode, showForm: true });
+  }
+
+  setPlayerToEdit = (player) => {
+    this.setState({ playerToEdit: player });
+  }
+
   displayForm = () => {
     this.setState({ showForm: true });
   }
@@ -43,7 +60,12 @@ class App extends React.Component {
   }
 
   renderView = () => {
-    const { authed, showForm } = this.state;
+    const {
+      authed,
+      showForm,
+      editMode,
+      playerToEdit,
+    } = this.state;
     if (!authed) {
       return (<Auth />);
     }
@@ -51,11 +73,11 @@ class App extends React.Component {
       return (
         <div>
           <button className="btn btn-outline-light" onClick={this.displayForm}>Add Player</button>
-          <Team />
+          <Team changeEditMode={this.changeEditMode} setPlayerToEdit={this.setPlayerToEdit} />
         </div>
       );
     }
-    return (<Form addNewPlayer={this.addPlayer} />);
+    return (<Form addNewPlayer={this.addPlayer} editPlayer={this.editPlayer} playerToEdit={playerToEdit} editMode={editMode} />);
   }
 
   render() {
