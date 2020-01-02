@@ -1,0 +1,11 @@
+@import '../../styles/variables';
+
+.playerCard {
+  background-color: transparent;
+  border: none;
+  color: whitesmoke;
+
+  img, button {
+    border-radius: 50px 10px;
+  }
+}

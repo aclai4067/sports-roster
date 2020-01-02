@@ -72,7 +72,9 @@ class App extends React.Component {
     if (!showForm) {
       return (
         <div>
-          <button className="btn btn-outline-light" onClick={this.displayForm}>Add Player</button>
+          <div className="addBtnDiv pt-4 pl-4">
+            <button className="btn btn-dark addBtn" onClick={this.displayForm}>+ Add Player</button>
+          </div>
           <Team changeEditMode={this.changeEditMode} setPlayerToEdit={this.setPlayerToEdit} />
         </div>
       );

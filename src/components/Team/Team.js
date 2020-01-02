@@ -38,7 +38,7 @@ class Team extends React.Component {
 
     return (
       <div>
-        <h1>My Team</h1>
+        <h1 className="pr-4">My Team</h1>
         <div className="row d-flex flex-wrap justify-content-around">
           {this.state.players.map((player) => <Player key={player.id} player={player} sack={this.removePlayer} changeEditMode={changeEditMode} setPlayerToEdit={setPlayerToEdit} />)}
         </div>

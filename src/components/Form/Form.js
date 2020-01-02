@@ -69,17 +69,17 @@ class Form extends React.Component {
     const { editMode } = this.props;
 
     return (
-      <form className='col-6 offset-3 PinForm'>
+      <form className='col-6 offset-3 mt-5 playerForm'>
         <div className="form-group">
-          <label htmlFor="player-name">Player Name:</label>
+          <label htmlFor="player-name">Player Name</label>
           <input type="text" className="form-control" id="player-name" placeholder="Mia Hamm" value={this.state.playerName} onChange={this.addName} />
         </div>
         <div className="form-group">
-          <label htmlFor="player-image-url">Player Image Url:</label>
+          <label htmlFor="player-image-url">Player Image Url</label>
           <input type="text" className="form-control" id="player-image-url" placeholder="https://www.google.com" value={this.state.playerImgUrl} onChange={this.addImgUrl} />
         </div>
         <div className="form-group">
-          <label htmlFor="player-position">Player Poisition:</label>
+          <label htmlFor="player-position">Player Poisition</label>
           <input type="text" className="form-control" id="player-position" placeholder="Forward" value={this.state.playerPosition} onChange={this.addPosition} />
         </div>
         {
