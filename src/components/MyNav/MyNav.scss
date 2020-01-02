@@ -1,0 +1,11 @@
+@import '../../styles/variables';
+
+.MyNavbar {
+  .navbar-brand{
+    color: $solidSportsGreen;
+  }
+
+  img {
+    width: 30px;
+  }
+}
